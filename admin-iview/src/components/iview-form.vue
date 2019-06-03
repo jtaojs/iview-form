@@ -44,6 +44,19 @@
             :disabled="opt.disabled"
           ></Option>
         </Select>
+          <Treeselect
+            v-else-if="item.type==='treeSelect'"
+            v-model="item.value"
+            :multiple="item.multiple"
+            :options="item.options"
+            :sort-value-by="item.index"
+            :default-expand-level="item.num"
+            :value-consists-of="item.valueConsistsOf"
+            :flatten-search-results="item.results"
+            :show-count="item.showCount"
+            :disable-branch-nodes="item.branchNodes"
+            :placeholder="item.placeholder"
+          ></Treeselect>
         <DatePicker
           v-else-if="item.type==='daterange'"
           v-model="item.value"
@@ -115,12 +128,20 @@
   </div>
 </template>
 <script>
+import Treeselect from "@riophae/vue-treeselect";
+import "@riophae/vue-treeselect/dist/vue-treeselect.css";
 export default {
+  components: {
+    Treeselect
+  },
   props: {
     formDynamic: {
       type: Object,
       require: true
     }
+  },
+  data() {
+    return {};
   },
   methods: {
     handleSubmit(name) {
@@ -132,7 +153,6 @@ export default {
           this.formDynamic.items.forEach((val, i) => {
             formValue[val.prop] = val.value;
           });
-          //console.log(formValue);
           this.$emit("submitForm", formValue);
         } else {
           this.$Message.error("Fail!");

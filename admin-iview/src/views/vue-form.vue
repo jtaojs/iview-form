@@ -76,6 +76,56 @@ export default {
             }
           },
           {
+            type: "treeSelect", //select类型
+            prop: "orgName",
+            label: "组织机构",
+            value: null,
+            multiple: false,
+            index: "INDEX",
+            valueConsistsOf: "LEAF_PRIORITY",
+            results: true,
+            showCount: true,
+            branchNodes: true,
+            placeholder: "请选择分公司",
+            num: 1,
+            options: [
+              {
+                id: "a",
+                label: "河北省天然气有限公司",
+                children: [
+                  {
+                    id: "b",
+                    label: "管道分公司"
+                  },
+                  {
+                    id: "c",
+                    label: "沙河分公司"
+                  },
+                  {
+                    id: "d",
+                    label: "清河分公司"
+                  },
+                  {
+                    id: "e",
+                    label: "涞源分公司"
+                  },
+                  {
+                    id: "f",
+                    label: "临西分公司"
+                  },
+                  {
+                    id: "g",
+                    label: "晋州分公司"
+                  },
+                  {
+                    id: "h",
+                    label: "辛集分公司"
+                  }
+                ]
+              }
+            ]
+          },
+          {
             type: "daterange", //date类型
             prop: "date",
             subtype: "date",
@@ -144,14 +194,14 @@ export default {
             labelReset: "Reset",
             sizeSubmit: "small",
             sizeReset: "small",
-            ghostSubmit:true,
-            ghostReset:true,
-            longSubmit:false,
-            longReset:false,
-            disabledSubmit:false,
-            disabledReset:false,
-            iconSubmit:'ios-search',
-            iconReset:'ios-refresh',
+            ghostSubmit: true,
+            ghostReset: true,
+            longSubmit: false,
+            longReset: false,
+            disabledSubmit: false,
+            disabledReset: false,
+            iconSubmit: "ios-search",
+            iconReset: "ios-refresh"
           }
         ]
       }
